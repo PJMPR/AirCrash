@@ -40,21 +40,21 @@ public class JourneyRepository extends RepositoryBase<Journey> {
 
 	@Override
 	protected void setUpdate(Journey entity) throws SQLException {
-		update.setString(1, entity.track());
-		update.setDate(2, entity.date());
-		update.setInt(3, entity.time());
-		update.setInt(4, entity.tickets());
-		update.setInt(5, entity.expectedDuration());
+		update.setString(1, entity.getTrack());
+		update.setDate(2, entity.getDate());
+		update.setInt(3, entity.getTime());
+		update.setInt(4, entity.getTickets());
+		update.setInt(5, entity.getExpectedDuration());
 		
 	}
 
 	@Override
 	protected void setInsert(Journey entity) throws SQLException {
-		insert.setString(1, entity.track());
-		insert.setDate(2, entity.date());
-		insert.setInt(3, entity.time());
-		insert.setInt(4, entity.tickets());
-		insert.setInt(5, entity.expectedDuration());
+		insert.setString(1, entity.getTrack());
+		insert.setDate(2, entity.getDate());
+		insert.setInt(3, entity.getTime());
+		insert.setInt(4, entity.getTickets());
+		insert.setInt(5, entity.getExpectedDuration());
 	}
 	
 }

@@ -35,15 +35,15 @@ public class AirplaneRepository extends RepositoryBase<Airplane> {
 
 	@Override
 	protected void setUpdate(Airplane entity) throws SQLException {
-		update.setInt(1, entity.seats());
-		update.setString(2, entity.model());
+		update.setInt(1, entity.getSeats());
+		update.setString(2, entity.getModel());
 		
 	}
 
 	@Override
 	protected void setInsert(Airplane entity) throws SQLException {
-		insert.setInt(1, entity.seats());
-		insert.setString(2, entity.model());
+		insert.setInt(1, entity.getSeats());
+		insert.setString(2, entity.getModel());
 	}
 	
 }

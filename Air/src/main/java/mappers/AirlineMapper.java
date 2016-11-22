@@ -9,8 +9,8 @@ public class AirlineMapper implements IMapResultSetIntoEntity<Airline>{
 
 	public Airline map(ResultSet rs) throws SQLException {
 		Airline airline = new Airline();
-		Airline.setId(rs.getInt("id"));
-		Airline.setName(rs.getString("name"));
+		airline.setId(rs.getInt("id"));
+		airline.setName(rs.getString("name"));
 		return airline;
 	}
 

@@ -38,17 +38,17 @@ public class ReservationRepository extends RepositoryBase<Reservation> {
 
 	@Override
 	protected void setUpdate(Reservation entity) throws SQLException {
-		update.setInt(1, entity.journeyId());
-		update.setDouble(2, entity.price());
-		update.setInt(3, entity.numerOfTickets());
+		update.setInt(1, entity.getJourneyId());
+		update.setDouble(2, entity.getPrice());
+		update.setInt(3, entity.getNumberOfTickets());
 		
 	}
 
 	@Override
 	protected void setInsert(Reservation entity) throws SQLException {
-		insert.setInt(1, entity.journeyId());
-		insert.setDouble(2, entity.price());
-		insert.setInt(3, entity.numerOfTickets());
+		insert.setInt(1, entity.getJourneyId());
+		insert.setDouble(2, entity.getPrice());
+		insert.setInt(3, entity.getNumberOfTickets());
 	}
 	
 }

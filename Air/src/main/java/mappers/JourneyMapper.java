@@ -9,12 +9,12 @@ public class JourneyMapper implements IMapResultSetIntoEntity<Journey>{
 
 	public Journey map(ResultSet rs) throws SQLException {
 		Journey journey = new Journey();
-		Journey.setId(rs.getInt("id"));
-		Journey.setTrack(rs.getString("track"));
-		Journey.setDate(rs.getDate("Date"));
-		Journey.setTime(rs.getInt("time"));
-		Journey.setTickets(rs.getInt("tickets"));
-		Journey.setExpectedDuration(rs.getInt("expectedDuration"));
+		journey.setId(rs.getInt("id"));
+		journey.setTrack(rs.getString("track"));
+		journey.setDate(rs.getDate("Date"));
+		journey.setTime(rs.getInt("time"));
+		journey.setTickets(rs.getInt("tickets"));
+		journey.setExpectedDuration(rs.getInt("expectedDuration"));
 		return journey;
 	}
 

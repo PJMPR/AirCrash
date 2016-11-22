@@ -1,6 +1,6 @@
 package AirCrash.Air;
 
-import java.util.Date;
+import java.sql.Date;
 
 public class Journey implements IHaveId{
 

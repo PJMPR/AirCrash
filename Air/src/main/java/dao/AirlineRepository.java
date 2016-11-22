@@ -37,13 +37,13 @@ public class AirlineRepository extends RepositoryBase<Airline> {
 
 	@Override
 	protected void setUpdate(Airline entity) throws SQLException {
-		update.setString(1, entity.name());
+		update.setString(1, entity.getName());
 		
 	}
 
 	@Override
 	protected void setInsert(Airline entity) throws SQLException {
-		insert.setString(2, entity.name());
+		insert.setString(2, entity.getName());
 	}
 	
 }
