@@ -1,6 +1,6 @@
 package AirCrash.Air;
 
-public class Airplane {
+public class Airplane implements IHaveId{
 
 	private int Id;
 	private int seats;
