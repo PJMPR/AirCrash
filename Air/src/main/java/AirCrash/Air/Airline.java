@@ -1,15 +1,15 @@
 package AirCrash.Air;
 
-public class Airline {
+public class Airline implements IHaveId{
 	
-	private int ID;
+	private int Id;
 	private String name;
 	
-	public int getID() {
-		return ID;
+	public int getId() {
+		return Id;
 	}
-	public void setID(int iD) {
-		ID = iD;
+	public void setId(int iD) {
+		Id = iD;
 	}
 	public String getName() {
 		return name;

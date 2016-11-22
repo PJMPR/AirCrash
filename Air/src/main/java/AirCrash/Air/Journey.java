@@ -2,7 +2,7 @@ package AirCrash.Air;
 
 import java.util.Date;
 
-public class Journey {
+public class Journey implements IHaveId{
 
 	private int Id;
 	private String track;

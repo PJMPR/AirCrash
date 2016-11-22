@@ -1,11 +1,18 @@
 package AirCrash.Air;
 
-public class Reservation {
+public class Reservation implements IHaveId{
 	
+	int id;
 	int journeyId;
 	double price;
 	int numberOfTickets;
 	
+	public int getId() {
+		return id;
+	}
+	public void setId(int id) {
+		this.id = id;
+	}
 	public int getJourneyId() {
 		return journeyId;
 	}
