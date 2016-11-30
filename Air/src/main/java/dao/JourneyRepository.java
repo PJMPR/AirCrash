@@ -147,4 +147,6 @@ implements IJourneyRepository{
 	public List<Journey> withExpectedDuration(int expectedDuration) {
 		return searchBy(expectedDuration);
 	}
+
+
 }

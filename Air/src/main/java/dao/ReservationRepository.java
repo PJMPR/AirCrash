@@ -89,7 +89,7 @@ implements IReservationRepository{
         return reservation;
     }
 
-    public List<Reservation> withTrack(int journeyId) {
+    public List<Reservation> withJourneyId(int journeyId) {
         return searchBy(journeyId);
     }
 
@@ -107,11 +107,13 @@ implements IReservationRepository{
         return reservation;
     }
     
-	public List<Reservation> withDate(double price) {
+	public List<Reservation> withPrice(double price) {
 		return searchBy(price);
 	}
 
-	public List<Reservation> withTime(int numberOfTickets) {
+	public List<Reservation> withNumberOfTickets(int numberOfTickets) {
 		return searchBy(numberOfTickets);
 	}
+
+
 }
