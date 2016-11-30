@@ -43,11 +43,11 @@ public class AirplaneRepository extends RepositoryBase<Airplane> implements IAir
 	}
 
 	protected String insertSql() {
-		return "INSERT INTO people(seats, model) VALUES (?,?)";
+		return "INSERT INTO airplane(seats, model) VALUES (?,?)";
 	}
 
 	protected String updateSql() {
-		return "UPDATE people SET (seats, model)=(?,?) WHERE id=?";
+		return "UPDATE airplane SET (seats, model)=(?,?) WHERE id=?";
 	}
 
 	protected String getSeatsSql(){return "SELECT * FROM airplane where seats = ?";}

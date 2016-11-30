@@ -7,9 +7,8 @@ public class Journey implements IHaveId{
 	private int Id;
 	private String track;
 	private Date date;
-	private int time;
 	private int tickets;
-	private int expectedDuration;
+	private double expectedDuration;
 	
 	public int getId() {
 		return Id;
@@ -29,24 +28,20 @@ public class Journey implements IHaveId{
 	public void setDate(Date date) {
 		this.date = date;
 	}
-	public int getTime() {
-		return time;
-	}
-	public void setTime(int time) {
-		this.time = time;
-	}
+
 	public int getTickets() {
 		return tickets;
 	}
 	public void setTickets(int tickets) {
 		this.tickets = tickets;
 	}
-	public int getExpectedDuration() {
+	public double getExpectedDuration() {
 		return expectedDuration;
 	}
-	public void setExpectedDuration(int expectedDuration) {
+	public void setExpectedDuration(double expectedDuration) {
 		this.expectedDuration = expectedDuration;
 	}
+	
 	
 	
 	

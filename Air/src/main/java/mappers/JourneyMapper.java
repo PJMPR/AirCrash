@@ -12,9 +12,8 @@ public class JourneyMapper implements IMapResultSetIntoEntity<Journey>{
 		journey.setId(rs.getInt("id"));
 		journey.setTrack(rs.getString("track"));
 		journey.setDate(rs.getDate("Date"));
-		journey.setTime(rs.getInt("time"));
 		journey.setTickets(rs.getInt("tickets"));
-		journey.setExpectedDuration(rs.getInt("expectedDuration"));
+		journey.setExpectedDuration(rs.getDouble("expectedDuration"));
 		return journey;
 	}
 

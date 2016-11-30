@@ -7,4 +7,5 @@ public interface IRepositoryCatalog {
 	public ICustomerRepository Customer();
 	public IJourneyRepository Journey();
 	public IReservationRepository Reservation();
+	public void save();
 }
