@@ -93,6 +93,20 @@ implements IReservationRepository{
         return searchBy(journeyId);
     }
 
+    private List<Reservation> searchBy(double value){
+        List<Reservation> reservation = new ArrayList<Reservation>();
+        try{
+            getJourneyId.setDouble(1,value);
+            ResultSet resultSet = getJourneyId.executeQuery();
+            while(resultSet.next()){
+                reservation.add(mapper.map(resultSet));
+            }
+        }catch (SQLException e){
+            e.printStackTrace();
+        }
+        return reservation;
+    }
+    
 	public List<Reservation> withDate(double price) {
 		return searchBy(price);
 	}

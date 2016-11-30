@@ -103,11 +103,39 @@ implements IJourneyRepository{
     public List<Journey> withTrack(String track) {
         return searchBy(track);
     }
+    
+    private List<Journey> searchBy(Date value){
+        List<Journey> journey = new ArrayList<Journey>();
+        try{
+            getTrack.setDate(1,value);
+            ResultSet resultSet = getTrack.executeQuery();
+            while(resultSet.next()){
+                journey.add(mapper.map(resultSet));
+            }
+        }catch (SQLException e){
+            e.printStackTrace();
+        }
+        return journey;
+    }
 
 	public List<Journey> withDate(Date Date) {
 		return searchBy(Date);
 	}
 
+    private List<Journey> searchBy(int value){
+        List<Journey> journey = new ArrayList<Journey>();
+        try{
+            getTrack.setInt(1,value);
+            ResultSet resultSet = getTrack.executeQuery();
+            while(resultSet.next()){
+                journey.add(mapper.map(resultSet));
+            }
+        }catch (SQLException e){
+            e.printStackTrace();
+        }
+        return journey;
+    }
+	
 	public List<Journey> withTime(int time) {
 		return searchBy(time);
 	}

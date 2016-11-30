@@ -6,7 +6,7 @@ import AirCrash.Air.Airplane;
 
 public interface IAirplaneRepository extends IRepository<Airplane> {
 
-	public List<Airplane> withName(String seats);
-	public List<Airplane> withSurname(String model);
+	public List<Airplane> withSeats(String seats);
+	public List<Airplane> withModel(String model);
 
 }

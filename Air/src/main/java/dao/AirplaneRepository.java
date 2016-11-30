@@ -87,4 +87,8 @@ public class AirplaneRepository extends RepositoryBase<Airplane> implements IAir
         return searchBy(model);
     }
 
+	public List<Airplane> withSeats(String seats) {
+		return searchBy(seats);
+	}
+
 }
