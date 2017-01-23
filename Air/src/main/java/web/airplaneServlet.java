@@ -8,20 +8,21 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import AirCrash.Air.Customer;
+import AirCrash.Air.Airline;
+import AirCrash.Air.Airplane;
 
-@WebServlet("/customerServlet")
-public class customerServlet extends HttpServlet {
+@WebServlet("/airplaneServlet")
+public class airplaneServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-
+       
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		Customer customer = new Customer();
-		customer.setName(request.getParameter("name"));
-		customer.setSurname(request.getParameter("surname"));
+		
+		Airplane airplane = new Airplane();
+		airplane.setModel(request.getParameter("model"));
+		airplane.setSeats(Integer.parseInt(request.getParameter("seats")));
 		HttpSession session = request.getSession();
-		session.setAttribute(SessionKey.customer, customer);
-		response.sendRedirect("final.jsp");
+		session.setAttribute(SessionKey.airplane, airplane);
+		response.sendRedirect("addJourney.html");
 	}
-
 
 }

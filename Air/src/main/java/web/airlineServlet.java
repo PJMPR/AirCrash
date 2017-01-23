@@ -18,9 +18,9 @@ public class airlineServlet extends HttpServlet {
 
 		Airline airline = new Airline();
 		airline.setName(request.getParameter("name"));
-		airline.setId(0); //ZROBIC DOBRE DODAWANIE ID
 		HttpSession session = request.getSession();
 		session.setAttribute(SessionKey.airline, airline);
+		response.sendRedirect("addAirplane.html");
 	}
 
 }
