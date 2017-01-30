@@ -2,19 +2,34 @@ package AirCrash.Air;
 
 import java.sql.Date;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "journey")
+@NamedQueries({ 
+		@NamedQuery(name = "journey.all", query = "SELECT j FROM Journey j"),
+		@NamedQuery(name = "journey.id", query = "SELECT j FROM Journey j WHERE j.id=:id") })
 public class Journey implements IHaveId{
 
-	private int Id;
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private int id;
 	private String track;
 	private Date date;
 	private int tickets;
 	private double expectedDuration;
 	
 	public int getId() {
-		return Id;
+		return id;
 	}
 	public void setId(int id) {
-		Id = id;
+		this.id = id;
 	}
 	public String getTrack() {
 		return track;
@@ -41,8 +56,5 @@ public class Journey implements IHaveId{
 	public void setExpectedDuration(double expectedDuration) {
 		this.expectedDuration = expectedDuration;
 	}
-	
-	
-	
 	
 }

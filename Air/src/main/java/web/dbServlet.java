@@ -1,10 +1,7 @@
 package web;
 
 import java.sql.Connection;
-import java.sql.Date;
 import java.sql.DriverManager;
-import java.sql.SQLException;
-import java.util.List;
 import java.io.IOException;
 
 import javax.servlet.ServletException;
@@ -40,9 +37,16 @@ public class dbServlet extends HttpServlet {
 		    Reservation reservation = (Reservation) session.getAttribute("reservation");
 		    Customer customer = (Customer) session.getAttribute("customer");
             catalogOf.Airline().add(airline);
+            catalogOf.save();
             catalogOf.Airplane().add(airplane);
+            catalogOf.save();
             catalogOf.Journey().add(journey);
+            catalogOf.save();
+            int journeyId = catalogOf.Journey().getLastId();
+            journey.setId(journeyId);
+            reservation.setJourney(journey);
             catalogOf.Reservation().add(reservation);
+            catalogOf.save();
             catalogOf.Customer().add(customer);
 			catalogOf.save();
 			session.removeAttribute("airline");

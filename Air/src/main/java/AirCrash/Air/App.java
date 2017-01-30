@@ -37,7 +37,6 @@ public class App
     	Gdansk.setTickets(50);
     	
     	Reservation rez1 = new Reservation();
-    	rez1.setJourneyId(1);
     	rez1.setNumberOfTickets(3);
     	rez1.setPrice(40.50);
     	

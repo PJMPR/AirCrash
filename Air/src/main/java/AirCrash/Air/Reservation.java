@@ -1,9 +1,26 @@
 package AirCrash.Air;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "reservation")
+@NamedQueries({ 
+		@NamedQuery(name = "reservation.all", query = "SELECT r FROM Reservation r"),
+		@NamedQuery(name = "reservation.id", query = "SELECT r FROM Reservation r WHERE r.id=:id") })
 public class Reservation implements IHaveId{
 	
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	int id;
-	int journeyId;
+	@ManyToOne
+	Journey journey;
 	double price;
 	int numberOfTickets;
 	
@@ -12,12 +29,6 @@ public class Reservation implements IHaveId{
 	}
 	public void setId(int id) {
 		this.id = id;
-	}
-	public int getJourneyId() {
-		return journeyId;
-	}
-	public void setJourneyId(int journeyId) {
-		this.journeyId = journeyId;
 	}
 	public double getPrice() {
 		return price;
@@ -31,6 +42,11 @@ public class Reservation implements IHaveId{
 	public void setNumberOfTickets(int numberOfTickets) {
 		this.numberOfTickets = numberOfTickets;
 	}
-	
+	public Journey getJourney() {
+		return journey;
+	}
+	public void setJourney(Journey journey) {
+		this.journey = journey;
+	}
 
 }

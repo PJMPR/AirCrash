@@ -25,6 +25,7 @@ protected PreparedStatement selectById;
 protected PreparedStatement update;
 protected PreparedStatement delete;
 protected PreparedStatement selectAll;
+protected PreparedStatement selectLastId;
 protected IUnitOfWork uow;
 protected IMapResultSetIntoEntity<TEntity> mapper;
 
@@ -44,9 +45,22 @@ try {
 	update = connection.prepareStatement(updateSql());
 	delete = connection.prepareStatement(deleteSql());
 	selectAll = connection.prepareStatement(selectAllSql());
+	selectLastId = connection.prepareStatement(selectLastIdSql());
 } catch (SQLException ex) {				
 	ex.printStackTrace();
 }
+}
+
+public int getLastId() {
+	try {
+		ResultSet rs = selectLastId.executeQuery();
+		while (rs.next()) {
+			return rs.getInt("id");
+		}
+	} catch (SQLException ex) {
+		ex.printStackTrace();
+	}
+	return 0;
 }
 
 public List<TEntity> getAll() {
@@ -135,6 +149,10 @@ return "DELETE FROM " + tableName() + " WHERE id=?";
 
 protected String selectAllSql() {
 return "SELECT * FROM " + tableName();
+}
+
+protected String selectLastIdSql() {
+	return "SELECT TOP 1 id FROM " + tableName()+ " ORDER BY id DESC";
 }
 
 private void createTableIfnotExists() throws SQLException {
